@@ -1,18 +1,18 @@
 gsap.registerPlugin(ScrollTrigger);
 
 function init(){
-  const parallaxTl = gsap.timeline({
+  gsap.to(['#intro h1', '#intro p'], {
+    autoAlpha: 0,
     ease: 'none',
     scrollTrigger: {
-      trigger: '.bcg-parallax',
-      start: 'top bottom',
-      scrub: true
+      trigger: '#intro .content',
+      start: 'top top+=5%',
+      end: 'bottom center',
+      pin:true,
+      scrub: true,
+      markers: true
     }
-  });
-
-  parallaxTl
-    .from('.content-wrapper', {duration: 0.4, autoAlpha: 0}, 0.4)
-    .from('.bcg', {duration: 2, y: '-30%'}, 0);
+  })
 }
 
 window.addEventListener('load', function(){
