@@ -11,7 +11,13 @@ function init(){
         trigger: project.querySelector('img'),
         start: 'top bottom-=30%',
         end: 'top center',
-        toggleActions: 'play none none reverse'
+        toggleActions: 'play none none reverse',
+        onUpdate: ({progress, direction, isActive, getVelocity}) => console.log(progress, direction, isActive, getVelocity()),
+        onToggle: () => {console.log('toggle')},
+        onEnter: () => {console.log('onEnter')},
+        onLeave: () => {console.log('onLeave')},
+        onEnterBack: () => {console.log('onEnterBack')},
+        onLeaveBack: () => {console.log('onLeaveBack')},
       }
     })
   })
