@@ -1,17 +1,19 @@
 gsap.registerPlugin(ScrollTrigger);
 
 function init(){
-  gsap.to(['#intro h1', '#intro p'], {
-    autoAlpha: 0,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '#intro .content',
-      start: 'top top+=5%',
-      end: 'bottom center',
-      pin:true,
-      scrub: true,
-      markers: true
-    }
+  const projects = document.querySelectorAll('.project');
+
+  projects.forEach((project) => {
+    gsap.from(project, {
+      opacity: 0,
+      yPercent: 5,
+      scrollTrigger: {
+        trigger: project.querySelector('img'),
+        start: 'top bottom-=30%',
+        end: 'top center',
+        toggleActions: 'play none none reverse'
+      }
+    })
   })
 }
 
